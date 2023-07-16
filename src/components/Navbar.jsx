@@ -1,25 +1,46 @@
 import React from 'react';
-import { Flex, Box } from '@chakra-ui/react';
-import { Link } from "@chakra-ui/react";
+import { Flex, Box, Link, useColorMode } from '@chakra-ui/react';
 
 const Navbar = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  const navbarBgColor = {
+    light: 'white',
+    dark: 'gray.800',
+  };
+
+  const navbarTextColor = {
+    light: 'black',
+    dark: 'white',
+  };
+
+  const navbarHoverStyles = {
+    light: {
+      bg: 'orange.500',
+      color: 'white',
+    },
+    dark: {
+      bg: 'gray.700',
+      color: 'white',
+    },
+  };
+
   return (
     <Flex
       as="nav"
-      bg="gray.800"
+      bg={navbarBgColor[colorMode]}
       p="5"
       rounded="full"
-      /* Remove the position and top properties */
       zIndex="sticky"
     >
-      <Box flex="1">
-        <span className="text-white">Logo</span>
+      <Box flex="0.5">
+       
       </Box>
       <Box>
         <Link
           href="#"
-          color="gray.300"
-          _hover={{ bg: "gray.700", color: "white" }}
+          color={navbarTextColor[colorMode]}
+          _hover={navbarHoverStyles[colorMode]}
           px="3"
           py="2"
           rounded="md"
@@ -32,8 +53,8 @@ const Navbar = () => {
         </Link>
         <Link
           href="#"
-          color="gray.300"
-          _hover={{ bg: "gray.700", color: "white" }}
+          color={navbarTextColor[colorMode]}
+          _hover={navbarHoverStyles[colorMode]}
           px="3"
           py="2"
           rounded="md"
@@ -42,12 +63,12 @@ const Navbar = () => {
           fontWeight="medium"
           mr="4"
         >
-          About Us
+          About Me
         </Link>
         <Link
           href="#"
-          color="gray.300"
-          _hover={{ bg: "gray.700", color: "white" }}
+          color={navbarTextColor[colorMode]}
+          _hover={navbarHoverStyles[colorMode]}
           px="3"
           py="2"
           rounded="md"
