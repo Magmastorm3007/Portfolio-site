@@ -1,4 +1,4 @@
-import { Box, Text, Image, useColorMode } from '@chakra-ui/react';
+import { Box, Text, useColorMode, Heading } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 const Profile = () => {
@@ -11,12 +11,12 @@ const Profile = () => {
   };
 
   const bgColor = {
-    light: 'white',
-    dark: 'gray.800',
+    light: 'orange.500',
+    dark: 'blue.800',
   };
 
   const textColor = {
-    light: 'black',
+    light: 'white',
     dark: 'white',
   };
 
@@ -25,29 +25,19 @@ const Profile = () => {
       initial="hidden"
       animate="visible"
       variants={fadeInVariants}
-      transition={{ duration: 1.25 }}
+      transition={{ duration: 4.25 }}
       p={4}
       borderRadius="md"
       bg={bgColor[colorMode]}
       color={textColor[colorMode]}
-      boxShadow="lg"
-      
       alignItems="center"
     >
-      <Image
-        src="/vite.svg"
-        alt="Profile Photo"
-        borderRadius="full"
-        boxSize="5vw"
-        mr={4}
-      />
-
-      <Box>
-        <Text fontSize="lg" fontWeight="bold" mb={1}>
-          Profile
-        </Text>
+      <Box p={4}  borderRadius="md">
+        <Heading as="h2" size="lg" mb={2}>
+          About Me!
+        </Heading>
         <Text fontSize="md" mb={2}>
-          I am a MERN stack developer and a game developer in Unity.
+          I am an experienced full stack web developer proficient in the MERN stack, adept at developing robust and scalable web applications. Additionally, I possess expertise in game development using Unity, allowing me to create immersive and interactive experiences across various platforms. With a strong background in both web and game development, I offer a versatile skill set to tackle diverse software development challenges.
         </Text>
       </Box>
     </MotionBox>

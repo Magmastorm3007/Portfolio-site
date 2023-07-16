@@ -5,8 +5,8 @@ const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const navbarBgColor = {
-    light: 'white',
-    dark: 'gray.800',
+    light: 'red.100',
+    dark: '#29292e',
   };
 
   const navbarTextColor = {
