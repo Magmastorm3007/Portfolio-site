@@ -38,7 +38,7 @@ const Navbar = () => {
       </Box>
       <Box>
         <Link
-          href="#"
+          href="/"
           color={navbarTextColor[colorMode]}
           _hover={navbarHoverStyles[colorMode]}
           px="3"
@@ -52,7 +52,7 @@ const Navbar = () => {
           Home
         </Link>
         <Link
-          href="#"
+          href="/projects"
           color={navbarTextColor[colorMode]}
           _hover={navbarHoverStyles[colorMode]}
           px="3"
@@ -63,10 +63,10 @@ const Navbar = () => {
           fontWeight="medium"
           mr="4"
         >
-          About Me
+          Projects
         </Link>
         <Link
-          href="#"
+          href="/contact"
           color={navbarTextColor[colorMode]}
           _hover={navbarHoverStyles[colorMode]}
           px="3"

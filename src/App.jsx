@@ -12,12 +12,16 @@ import ColourMode from './components/ColourMode';
 import Profile from './pages/Profile';
 import Model from './components/Model';
 import SkillSection from './pages/Skills';
+import Homepage from './pages/Homepage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Contact from './pages/Contact';
+import Project from './pages/Project';
 
 function App() {
-  const [count, setCount] = useState(0);
-
+ 
   return (
     <>
+     
       <Container minW="container.lg" minH="100vh">
         <ColourMode />
 
@@ -25,43 +29,15 @@ function App() {
           <Navbar />
         </Box>
 
-        <Box p={4} minH="30vh">
-          <Heading>
-          <Typewriter
-              onInit={(typewriter) => {
-                typewriter
-                .typeString('Hello World!')
-                  .pauseFor(200)
-                  .deleteAll()
-                  .typeString('I am Shashwat ')
-                  .pauseFor(200)
-                 
-                  .start();
-              }}
-            />
-            <Typewriter
-              onInit={(typewriter) => {
-                typewriter
-                .pauseFor(1500)
-                  .typeString('Web Developer | Game Developer')
-                  .start();
-              }}
-            />
-          </Heading>
-         
-              
-          <Container minW="container.md">
-            <Canvas>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} />
-              <Model url="monitor.glb" />
-            </Canvas>
-
-          </Container>
-
-          <Profile/>
-          <SkillSection/>
-        </Box>
+        <Router>
+        <Routes>
+          <Route exact path="/" Component={Homepage}></Route>
+          <Route exact path="/contact" Component={Contact}></Route>
+          <Route exact path="/projects" Component={Project}></Route>
+        </Routes>
+      </Router>
+       
+    
       </Container>
     </>
   );
