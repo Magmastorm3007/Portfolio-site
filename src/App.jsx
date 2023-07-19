@@ -22,6 +22,8 @@ function App() {
   return (
     <>
      
+      
+      <Router>
       <Container minW="container.lg" minH="100vh">
         <ColourMode />
 
@@ -29,16 +31,17 @@ function App() {
           <Navbar />
         </Box>
 
-        <Router>
+    
         <Routes>
           <Route exact path="/" Component={Homepage}></Route>
           <Route exact path="/contact" Component={Contact}></Route>
           <Route exact path="/projects" Component={Project}></Route>
         </Routes>
+        </Container>
       </Router>
        
     
-      </Container>
+    
     </>
   );
 }

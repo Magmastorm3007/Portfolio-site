@@ -1,5 +1,6 @@
 import React from 'react';
-import { Flex, Box, Link, useColorMode } from '@chakra-ui/react';
+import { Flex, Box, useColorMode } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -26,19 +27,11 @@ const Navbar = () => {
   };
 
   return (
-    <Flex
-      as="nav"
-      bg={navbarBgColor[colorMode]}
-      p="5"
-      rounded="full"
-      zIndex="sticky"
-    >
-      <Box flex="0.5">
-       
-      </Box>
+    <Flex as="nav" bg={navbarBgColor[colorMode]} p="5" rounded="full" zIndex="sticky">
+      <Box flex="0.5"></Box>
       <Box>
         <Link
-          href="/"
+          to="/"  // Use "to" instead of "href" in react-router-dom
           color={navbarTextColor[colorMode]}
           _hover={navbarHoverStyles[colorMode]}
           px="3"
@@ -52,7 +45,7 @@ const Navbar = () => {
           Home
         </Link>
         <Link
-          href="/projects"
+          to="/projects"  // Use "to" instead of "href" in react-router-dom
           color={navbarTextColor[colorMode]}
           _hover={navbarHoverStyles[colorMode]}
           px="3"
@@ -66,7 +59,7 @@ const Navbar = () => {
           Projects
         </Link>
         <Link
-          href="/contact"
+          to="/contact"  // Use "to" instead of "href" in react-router-dom
           color={navbarTextColor[colorMode]}
           _hover={navbarHoverStyles[colorMode]}
           px="3"
