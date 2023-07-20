@@ -2,73 +2,23 @@ import React from 'react';
 import { Flex, Box, useColorMode } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
+
 const Navbar = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
 
-  const navbarBgColor = {
-    light: 'red.100',
-    dark: '#29292e',
-  };
-
-  const navbarTextColor = {
-    light: 'black',
-    dark: 'white',
-  };
-
-  const navbarHoverStyles = {
-    light: {
-      bg: 'orange.500',
-      color: 'white',
-    },
-    dark: {
-      bg: 'gray.700',
-      color: 'white',
-    },
-  };
+  const navbarClass = colorMode === 'dark' ? 'navbar navbar-dark' : 'navbar';
 
   return (
-    <Flex as="nav" bg={navbarBgColor[colorMode]} p="5" rounded="full" zIndex="sticky">
+    <Flex as="nav" className={navbarClass}>
       <Box flex="0.5"></Box>
-      <Box>
-        <Link
-          to="/"  // Use "to" instead of "href" in react-router-dom
-          color={navbarTextColor[colorMode]}
-          _hover={navbarHoverStyles[colorMode]}
-          px="3"
-          py="2"
-          rounded="md"
-          textTransform="uppercase"
-          fontSize="sm"
-          fontWeight="medium"
-          mr="4"
-        >
+      <Box className="navbar-links">
+        <Link to="/" className="nav-link">
           Home
         </Link>
-        <Link
-          to="/projects"  // Use "to" instead of "href" in react-router-dom
-          color={navbarTextColor[colorMode]}
-          _hover={navbarHoverStyles[colorMode]}
-          px="3"
-          py="2"
-          rounded="md"
-          textTransform="uppercase"
-          fontSize="sm"
-          fontWeight="medium"
-          mr="4"
-        >
+        <Link to="/projects" className="nav-link">
           Projects
         </Link>
-        <Link
-          to="/contact"  // Use "to" instead of "href" in react-router-dom
-          color={navbarTextColor[colorMode]}
-          _hover={navbarHoverStyles[colorMode]}
-          px="3"
-          py="2"
-          rounded="md"
-          textTransform="uppercase"
-          fontSize="sm"
-          fontWeight="medium"
-        >
+        <Link to="/contact" className="nav-link">
           Contact
         </Link>
       </Box>

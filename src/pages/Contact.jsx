@@ -1,97 +1,149 @@
-import React from 'react';
-import { Box, Flex, IconButton, Icon, Input, Text, useToast, useColorModeValue } from '@chakra-ui/react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa'; // Import the appropriate icons
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import emailjs from 'emailjs-com';
+import {
+  Box,
+  FormControl,
+  FormLabel,
+  Input,
+  Textarea,
+  Button,
+  useToast,
+  useColorMode,
+} from '@chakra-ui/react';
 
-const ContactPage = () => {
+const Contact = () => {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [message, setMessage] = useState('');
   const toast = useToast();
-  const textColor = useColorModeValue('black', 'white');
+  const { colorMode } = useColorMode();
 
-  const handleFormSubmit = (e) => {
+  const reset = () => {
+    setName('');
+  };
+
+  const mail = (e) => {
     e.preventDefault();
-    // Code to handle form submission and email redirection
-    // Replace the next line with your actual email address
-    const email = 'your-email@example.com';
-    window.location.href = `mailto:${email}?subject=Contact Form Submission&body=Name: ${e.target.name.value}%0D%0AEmail: ${e.target.email.value}%0D%0AMessage: ${e.target.message.value}`;
-    // Show a success toast to the user
-    toast({
-      title: 'Form submitted successfully!',
-      description: 'We will get back to you soon.',
-      status: 'success',
-      duration: 3000,
-      isClosable: true,
-    });
-    // Reset the form fields
     e.target.reset();
+    emailjs
+      .sendForm('service_dmimtja', 'template_jve3fog', e.target, 'QRmgbLck8DSx7As5o')
+      .then((result) => {
+        console.log(result.text);
+        toast({
+          title: 'Form submitted successfully!',
+          description: 'We will get back to you soon.',
+          status: 'success',
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch((error) => {
+        console.log(error.text);
+        toast({
+          title: 'Error',
+          description: 'An error occurred. Please try again later.',
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+        });
+      });
+
+    reset();
   };
 
   return (
-    <Box p={8}>
-      <Text fontSize="lg" fontWeight="bold" mb={2}>
-        Contact Me On
-      </Text>
-      {/* Row with icons */}
-      <Flex justifyContent="center" mb={4}>
-        {/* Use the actual icon components */}
-        <IconButton
-          icon={<FaGithub />}
-          aria-label="GitHub"
-          size="lg"
-          isRound
-        />
-        <IconButton
-          icon={<FaLinkedin />}
-          aria-label="LinkedIn"
-          size="lg"
-          isRound
-        />
-        {/* Add more IconButton components for other icons */}
-      </Flex>
-
-      <Box
-        p={4}
-        boxShadow="md"
-        borderRadius="md"
-        bgGradient="linear(to-r, yellow.400, pink.500, red.500)"
-        color="white"
-      >
-        <form onSubmit={handleFormSubmit}>
-          <Text fontSize="lg" fontWeight="bold" mb={4}>
-            Send a Message
-          </Text>
-          <Flex flexDirection="column" mb={4}>
-            <Text>Email Address</Text>
-            <Input
-              type="email"
-              placeholder="Your Email"
-              name="email"
-              bg="white" // Set background color to white
-              color="black" // Set text color to black
-            />
-          </Flex>
-          <Flex flexDirection="column" mb={2}>
-            <Text>Message</Text>
-            <Input
-              placeholder="Your Message"
-              name="message"
-              as="textarea"
-              rows={4}
-              resize="none"
-              bg="white" // Set background color to white
-              color="black" // Set text color to black
-            />
-          </Flex>
-          <Flex justifyContent="flex-end">
-            <button type="submit" bg="teal.500" color="white" px={8} py={2} rounded="md">
-              Submit
-            </button>
-          </Flex>
-        </form>
+    <Box p={6} rounded="lg" fontFamily="inter" bg={colorMode === 'light' ? 'orange.500' : 'blue.800'}>
+      <Box pb={2} textAlign="center">
+        <h2 className="text-4xl font-bold">Contact Me</h2>
       </Box>
-      <Text mt={4} textAlign="center" color={textColor}>
-        Or call me at: +1 (123) 456-7890
-      </Text>
+      <motion.div
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        style={{ cursor: 'pointer' }}
+      >
+        <Box pb={2} textAlign="left">
+          <a
+            href="https://github.com/your-github"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub size={30} color={colorMode === 'light' ? 'white' : 'black'} />
+          </a>
+        </Box>
+      </motion.div>
+      <motion.div
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        style={{ cursor: 'pointer' }}
+      >
+        <Box pb={2} textAlign="left">
+          <a
+            href="https://www.linkedin.com/in/your-linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin size={30} color={colorMode === 'light' ? 'white' : 'black'} />
+          </a>
+        </Box>
+      </motion.div>
+      <form onSubmit={mail}>
+        <FormControl>
+          <FormLabel className="text-xl font-bold text-gray-600 uppercase">Full Name</FormLabel>
+          <Input
+            name="from_name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            bg="gray.300"
+            focusBorderColor="indigo.500"
+            size="lg"
+            rounded="md"
+          />
+        </FormControl>
+        <FormControl mt={8}>
+          <FormLabel className="text-xl font-bold text-gray-600 uppercase">Email</FormLabel>
+          <Input
+            name="from_email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            bg="gray.300"
+            focusBorderColor="indigo.500"
+            size="lg"
+            rounded="md"
+          />
+        </FormControl>
+        <FormControl mt={8}>
+          <FormLabel className="text-xl font-bold text-gray-600 uppercase">Message</FormLabel>
+          <Textarea
+            name="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            bg="gray.300"
+            focusBorderColor="indigo.500"
+            size="lg"
+            rounded="md"
+            rows={4}
+          />
+        </FormControl>
+        <Button
+          type="submit"
+          mt={8}
+          w="full"
+          py={3}
+          size="lg"
+          fontWeight="bold"
+          textTransform="uppercase"
+          bg={colorMode === 'light' ? 'orange.500' : 'blue.700'}
+          color="white"
+          rounded="md"
+          _hover={{ bg: colorMode === 'light' ? 'orange.600' : 'blue.800' }}
+        >
+          Send Message
+        </Button>
+      </form>
     </Box>
   );
 };
 
-export default ContactPage;
+export default Contact;

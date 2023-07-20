@@ -40,3 +40,52 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Navbar.css */
+/* Navbar.css */
+:root {
+
+  --navbar-bg-color-light: lightpink;
+  --navbar-text-color-light: black;
+  --navbar-hover-bg-color-light: orange;
+  --navbar-hover-text-color-light: white;
+  --navbar-hover-bg-color:orange;
+  --navbar-bg-color-dark: darkteal; /* Define a different background color for dark mode */
+  --navbar-text-color-dark: white; /* Define a different text color for dark mode */
+  --navbar-hover-bg-color-dark: darkorange; /* Define a different hover background color for dark mode */
+  --navbar-hover-text-color-dark: black;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--navbar-bg-color); /* Use CSS variable for background color */
+  padding: 1rem 2rem; /* Increase the padding to make the Navbar bigger */
+  border-radius: 9999px; /* Using a large value for rounded to make it circular */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--navbar-text-color); /* Use CSS variable for text color */
+  padding: 0.5rem 1rem;
+  border-radius: 9999px; /* Using a large value for rounded to make it circular */
+  margin-right: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: var(--navbar-hover-bg-color); /* Use CSS variable for hover background color */
+  color: var(--navbar-hover-text-color); /* Use CSS variable for hover text color */
+}
