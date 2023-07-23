@@ -60,7 +60,7 @@ function Project() {
 
   return (
     <Box p={4} boxShadow="md" borderRadius="md" bg={containerColor}>
-      <Text fontSize="xl" fontWeight="bold" mb={5} color={headcolor}>
+      <Text fontSize="xl" fontWeight="bold" mb={5} color='white'>
         Projects
       </Text>
       <motion.div initial="hidden" animate="visible" variants={fadeInVariants}>

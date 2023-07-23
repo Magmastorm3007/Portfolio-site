@@ -19,22 +19,37 @@ function Homepage() {
        <Box p={4} minH="30vh">
           <Heading>
           <Typewriter
+           options={{
+            cursor: '', // Set the cursor to an empty string to hide it
+          }}
               onInit={(typewriter) => {
                 typewriter
                 .typeString('Hello World!')
                   .pauseFor(200)
                   .deleteAll()
                   .typeString('I am Shashwat ')
+
                   .pauseFor(200)  
+                   .callFunction(() => {
+            // After typing is completed, hide the cursor
+            typewriter.typewriterHtml.classList.add('hidden-cursor');
+          })
                  
                   .start();
               }}
             />
             <Typewriter
+            options={{cursor:''}}
+            
               onInit={(typewriter) => {
                 typewriter
+                
                 .pauseFor(1500)
                   .typeString('Web Developer | Game Developer')
+                  .callFunction(() => {
+                    // After typing is completed, hide the cursor
+                    typewriter.typewriterHtml.classList.add('hidden-cursor');
+                  })
                   .start();
               }}
             />

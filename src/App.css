@@ -86,6 +86,9 @@
 }
 
 .nav-link:hover {
-  background-color: var(--navbar-hover-bg-color); /* Use CSS variable for hover background color */
+
   color: var(--navbar-hover-text-color); /* Use CSS variable for hover text color */
+}
+.hidden-cursor::after {
+  content: '';
 }

@@ -1,4 +1,4 @@
-import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
+import { ChakraProvider, ColorModeScript, DarkMode } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 
@@ -22,7 +22,7 @@ const theme = extendTheme({
 export function ChakraSetup({ children }) {
   return (
     <ChakraProvider theme={theme}>
-      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <ColorModeScript initialColorMode={DarkMode} />
       {children}
     </ChakraProvider>
   );

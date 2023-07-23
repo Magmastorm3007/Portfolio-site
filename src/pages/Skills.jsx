@@ -1,10 +1,12 @@
-import { Box, Text, Flex, Icon, useColorModeValue } from '@chakra-ui/react';
+import { Box, Text, Flex, Icon } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { DiJavascript, DiUnitySmall, DiDatabase, DiMysql, DiLinux, DiReact, DiNodejs, DiFirebase, DiCss3, DiHtml5, DiPhp, DiPython, DiBootstrap, DiGithub } from 'react-icons/di';
 import { FaCuttlefish } from 'react-icons/fa';
 
 const SkillSection = () => {
-  const iconColor = useColorModeValue('gray.700', 'gray.300');
+  
+  const iconColor = 'gray.700';
+
   const skills = [
     { name: 'C++', icon: FaCuttlefish },
     { name: 'JavaScript', icon: DiJavascript },
@@ -31,7 +33,7 @@ const SkillSection = () => {
   return (
     <motion.div initial="hidden" animate="visible" variants={fadeInVariants}>
       <Box p={4} boxShadow="md" borderRadius="md" bg="white">
-        <Text fontSize="xl" fontWeight="bold" mb={5}>
+        <Text fontSize="xl" fontWeight="bold" color={iconColor} mb={5}>
           Skills
         </Text>
         <Flex flexWrap="wrap">
@@ -45,7 +47,7 @@ const SkillSection = () => {
             >
               <Box>
                 <Icon as={skill.icon} boxSize={8} color={iconColor} />
-                <Text mt={2}>{skill.name}</Text>
+                <Text mt={2}  color={iconColor}>{skill.name}</Text>
               </Box>
             </motion.div>
           ))}

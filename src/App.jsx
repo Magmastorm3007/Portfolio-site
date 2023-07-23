@@ -26,10 +26,15 @@ function App() {
       <Router>
       <Container minW="container.lg" minH="100vh">
         <ColourMode />
-
+      
         <Box p={4} minH="10vh">
+        
           <Navbar />
+          <img src='/cat.gif' height='2px'/>
         </Box>
+        
+         
+      
 
     
         <Routes>
