@@ -30,7 +30,7 @@ function App() {
         <Box p={4} minH="10vh">
         
           <Navbar />
-          <img src='/cat.gif' height='2px'/>
+          <img src='cat.gif' height='2px'/>
         </Box>
         
          
