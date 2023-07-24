@@ -46,7 +46,7 @@ function Homepage() {
                 
                 .pauseFor(1500)
                   .typeString('Web Developer | Game Developer')
-                  .callFunction(() => {
+                  .callFunction(() => {z
                     // After typing is completed, hide the cursor
                     typewriter.typewriterHtml.classList.add('hidden-cursor');
                   })

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, } from 'react-icons/fa';
 
 import emailjs from 'emailjs-com';
 import {
@@ -73,12 +73,12 @@ const Contact = () => {
         </Box>
         <Flex justifyContent="center" alignItems="center" py={2}>
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-            <a href="https://github.com/your-github" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Magmastorm3007" target="_blank" rel="noopener noreferrer">
               <FaGithub size={30} color={colorMode === 'light' ? 'white' : 'black'} />
             </a>
           </motion.div>
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} px={2}>
-            <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/shashwat-nath-077128168/" target="_blank" rel="noopener noreferrer">
               <FaLinkedin size={30} color={colorMode === 'light' ? 'white' : 'black'} />
             </a>
           </motion.div>

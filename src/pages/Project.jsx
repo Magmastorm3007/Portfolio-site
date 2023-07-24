@@ -5,7 +5,7 @@ import { FiExternalLink } from 'react-icons/fi';
 function Project() {
   const projects = [
     {
-      title: 'BookStore App',
+      title: 'Bookstore App',
       website: 'http://shashwatnath.me/OnlineBookStore/',
       description:
         'BookStore Web App with CRUD,Auth and Payment Gateway implemented with my own book database.',
@@ -41,21 +41,21 @@ function Project() {
         image: '7.png', // Replace with the path to your image file
       },
       {
-        title: 'Project 4',
+        title: 'Ninja Araki',
         website: 'https://magmastorm.itch.io/ninja-araki',
         description:
           'Ninja Araki is a 2D action platformer game built with custom created assets and gameplay systems using Unity3D',
         image: '4.png', // Replace with the path to your image file
       },
       {
-        title: 'Project 5',
+        title: 'Eldian Defiance',
         website: 'https://magmastorm.itch.io/eldian-defiance',
         description:
           'A game inspired by attack on titan that uses trajectory system based on mathematical calculations made in Unity3D',
         image: '5.png', // Replace with the path to your image file
       },
       {
-        title: 'Project 6',
+        title: 'Phantom Rush',
         website: 'https://magmastorm.itch.io/phantom-rush',
         description:
           'An Endless Runner where you have get the highest score by dodging enemies,made in Unity Engine 3D',
