@@ -34,28 +34,28 @@ function Project() {
         image: '8.png', // Replace with the path to your image file
       },
       {
-        title: 'My Weather App',
+        title: 'MyWeather',
         website: 'http://shashwatnath.me/MyWeatherApp/',
         description:
           'A React application that can fetch current weather conditions from any part of the world using Open Weather REST API',
         image: '7.png', // Replace with the path to your image file
       },
       {
-        title: 'Ninja Araki',
+        title: 'Project 4',
         website: 'https://magmastorm.itch.io/ninja-araki',
         description:
           'Ninja Araki is a 2D action platformer game built with custom created assets and gameplay systems using Unity3D',
         image: '4.png', // Replace with the path to your image file
       },
       {
-        title: 'Eldian Defiance',
+        title: 'Project 5',
         website: 'https://magmastorm.itch.io/eldian-defiance',
         description:
           'A game inspired by attack on titan that uses trajectory system based on mathematical calculations made in Unity3D',
         image: '5.png', // Replace with the path to your image file
       },
       {
-        title: 'Phantom Rush',
+        title: 'Project 6',
         website: 'https://magmastorm.itch.io/phantom-rush',
         description:
           'An Endless Runner where you have get the highest score by dodging enemies,made in Unity Engine 3D',
