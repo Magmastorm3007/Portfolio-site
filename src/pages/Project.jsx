@@ -21,7 +21,7 @@ function Project() {
     
     {
         title: 'Pixel Art Maker',
-        website: 'http://shashwatnath.me/OnlineBookStore/PixelArtMaker',
+        website: 'http://shashwatnath.me/PixelArtMaker',
         description:
           'A React Application built using paint library to create Pixel Art and readily export it on mobile devices.',
         image: '3.png', // Replace with the path to your image file
