@@ -6,40 +6,34 @@ function Project() {
   const projects = [
     {
       title: 'Bookstore App',
-      website: 'http://shashwatnath.me/OnlineBookStore/',
-      description:
-        'BookStore Web App with CRUD,Auth and Payment Gateway implemented with my own book database.',
-      image: '1.png', // Replace with the path to your image file
+      website: 'https://magmastorm3007.github.io/OnlineBookStore/',
+      description: 'BookStore Web App with CRUD, Auth and Payment Gateway implemented with my own book database.',
+      image: '1.png',
     },
     {
       title: 'Chatroom',
-      website: 'http://shashwatnath.me/superchat/',
-      description:
-        'Chat-App implemented with Firebase and Web Socket,Built with React with Desktop and Mobile mode. ',
-      image: '2.png', // Replace with the path to your image file
+      website: 'https://magmastorm3007.github.io/superchat/',
+      description: 'Chat-App implemented with Firebase and Web Socket, Built with React with Desktop and Mobile mode.',
+      image: '2.png',
     },
-    
     {
-        title: 'Pixel Art Maker',
-        website: 'http://shashwatnath.me/PixelArtMaker',
-        description:
-          'A React Application built using paint library to create Pixel Art and readily export it on mobile devices.',
-        image: '3.png', // Replace with the path to your image file
-      },
-      {
-        title: 'Customize 3D-Shirt',
-        website: 'https://github.com/Magmastorm3007/3D-Product-GPT',
-        description:
-          'A tutorial app for three-js where you may customize shirt and paint textures and logos as well as use DALL-E API',
-        image: '8.png', // Replace with the path to your image file
-      },
-      {
-        title: 'MyWeather',
-        website: 'http://shashwatnath.me/MyWeatherApp/',
-        description:
-          'A React application that can fetch current weather conditions from any part of the world using Open Weather REST API',
-        image: '7.png', // Replace with the path to your image file
-      },
+      title: 'Pixel Art Maker',
+      website: 'https://magmastorm3007.github.io/PixelArtMaker',
+      description: 'A React Application built using paint library to create Pixel Art and readily export it on mobile devices.',
+      image: '3.png',
+    },
+    {
+      title: 'Customize 3D-Shirt',
+      website: 'https://magmastorm3007.github.io/3D-Product-GPT',
+      description: 'A tutorial app for three-js where you may customize shirt and paint textures and logos as well as use DALL-E API',
+      image: '8.png',
+    },
+    {
+      title: 'MyWeather',
+      website: 'https://magmastorm3007.github.io/MyWeatherApp/',
+      description: 'A React application that can fetch current weather conditions from any part of the world using Open Weather REST API',
+      image: '7.png',
+    },
       {
         title: 'Ninja Araki',
         website: 'https://magmastorm.itch.io/ninja-araki',
@@ -60,6 +54,14 @@ function Project() {
         description:
           'An Endless Runner where you have get the highest score by dodging enemies,made in Unity Engine 3D',
         image: '6.png', // Replace with the path to your image file
+      },
+
+      {
+        title: 'Set-Memory',
+        website: 'https://www.npmjs.com/package/set-memory',
+        description:
+          'Set Node Options to limit memory for node applications as per its system freeuse memory',
+        image: '9.png', // Replace with the path to your image file
       },
     // Add more projects with titles, websites, descriptions, and image paths
   ];
