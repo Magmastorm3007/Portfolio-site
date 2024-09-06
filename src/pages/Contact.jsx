@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, } from 'react-icons/fa';
-
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import emailjs from 'emailjs-com';
 import {
   Box,
@@ -14,19 +13,25 @@ import {
   Heading,
   useColorMode,
   Flex,
+  useColorModeValue,
 } from '@chakra-ui/react';
 
 const Contact = () => {
+  const containerColor = useColorModeValue('orange.400', 'gray.700');
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
   const toast = useToast();
   const { colorMode } = useColorMode();
 
+  // Reset form data
   const reset = () => {
     setName('');
+    setEmail('');
+    setMessage('');
   };
 
+  // Handle form submission
   const mail = (e) => {
     e.preventDefault();
     e.target.reset();
@@ -56,8 +61,8 @@ const Contact = () => {
     reset();
   };
 
+  // Animation setup
   const animation = { opacity: 1 };
-  
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       animation.opacity = 1;
@@ -66,10 +71,28 @@ const Contact = () => {
   }, []);
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={animation}>
-      <Box p={6} rounded="lg" fontFamily="inter" bg={colorMode === 'light' ? 'orange.500' : 'gray.700'}>
-        <Box pb={2} textAlign="center">
-          <Heading fontSize="xl"  color='white' className="text-4xl font-bold">Contact Me</Heading>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={animation}
+      style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+    >
+      <Box
+        p={{ base: 4, md: 6 }}
+        boxShadow="md"
+        borderRadius="md"
+        bg={containerColor}
+        maxW={{ base: '100%', md: 'container.md' }}
+        mx="auto"
+        my={{ base: 4, md: 8 }}
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        overflow="hidden" // Prevent horizontal scrolling
+      >
+        <Box pb={2} textAlign="center" width="100%">
+          <Heading fontSize={{ base: 'xl', md: '2xl' }} color="white" className="text-4xl font-bold">
+            Contact Me
+          </Heading>
         </Box>
         <Flex justifyContent="center" alignItems="center" py={2}>
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
@@ -83,45 +106,57 @@ const Contact = () => {
             </a>
           </motion.div>
         </Flex>
-        <form onSubmit={mail}>
-          <FormControl>
-            <FormLabel className="text-xl font-bold text-gray-600 uppercase">Full Name</FormLabel>
+        <form onSubmit={mail} style={{ width: '100%' }}>
+          <FormControl mt={4}>
+            <FormLabel color="white" fontWeight="bold">
+              Full Name
+            </FormLabel>
             <Input
               name="from_name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               bg="gray.300"
-              color="black" // Set text color to black
+              color="black"
               focusBorderColor="indigo.500"
               size="lg"
               rounded="md"
+              _hover={{ bg: 'gray.200' }}
+              width="100%"
             />
           </FormControl>
-          <FormControl mt={8}>
-            <FormLabel className="text-xl font-bold text-gray-600 uppercase">Email</FormLabel>
+          <FormControl mt={6}>
+            <FormLabel color="white" fontWeight="bold">
+              Email
+            </FormLabel>
             <Input
               name="from_email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               bg="gray.300"
-              color="black" // Set text color to black
+              color="black"
               focusBorderColor="indigo.500"
               size="lg"
               rounded="md"
+              _hover={{ bg: 'gray.200' }}
+              width="100%"
             />
           </FormControl>
-          <FormControl mt={8}>
-            <FormLabel className="text-xl font-bold text-gray-600 uppercase">Message</FormLabel>
+          <FormControl mt={6}>
+            <FormLabel color="white" fontWeight="bold">
+              Message
+            </FormLabel>
             <Textarea
               name="message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               bg="gray.300"
-              color="black" // Set text color to black
+              color="black"
               focusBorderColor="indigo.500"
               size="lg"
               rounded="md"
               rows={4}
+              _hover={{ bg: 'gray.200' }}
+              width="100%"
             />
           </FormControl>
           <Button
@@ -131,11 +166,11 @@ const Contact = () => {
             py={3}
             size="lg"
             fontWeight="bold"
-            textTransform="uppercase"
-            bg={colorMode === 'light' ? 'yellow.500' : 'blue.700'}
+            
+            bg={colorMode === 'light' ? 'orange.300' : 'red.300'}
             color="white"
             rounded="md"
-            _hover={{ bg: colorMode === 'light' ? 'yellow.300' : 'blue.900' }}
+            _hover={{ bg: colorMode === 'light' ? 'orange.500' : 'red.500' }}
           >
             Send Message
           </Button>

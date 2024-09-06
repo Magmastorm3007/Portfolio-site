@@ -54,7 +54,6 @@ const Navbar = () => {
       >
         Projects
       </chakra.div>
-
       <chakra.div
         as={Link}
         to="/contact"
@@ -67,6 +66,20 @@ const Navbar = () => {
       >
         Contact
       </chakra.div>
+      <chakra.div
+        as={Link}
+        to="/work"
+        p={2}
+        borderRadius="md"
+        className='nav-link'
+        _hover={{ bg: colorMode === 'light' ? 'yellow.200' : 'blue.800' }}
+        {...linkContainerStyles[colorMode]}
+        style={disableTextHighlight} // Disable blue text highlight on link click
+      >
+        Work Experience
+      </chakra.div>
+
+     
     </Flex>
   );
 };

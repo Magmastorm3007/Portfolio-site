@@ -3,7 +3,7 @@ import { extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 
 const config = {
-  initialColorMode: "light",
+  initialColorMode: "dark", // Set dark mode as default
   useSystemColorMode: false,
 };
 
@@ -12,8 +12,9 @@ const theme = extendTheme({
   styles: {
     global: (props) => ({
       body: {
-        bg: mode("yellow.100", "#222625")(props),
-        margin:0,
+        bg: mode("yellow.100", "#222625")(props), // Use light bg for light mode and dark bg for dark mode
+        margin: 0,
+        color: mode("black", "white")(props), // Use black text for light mode and white text for dark mode
       },
     }),
   },
@@ -22,7 +23,7 @@ const theme = extendTheme({
 export function ChakraSetup({ children }) {
   return (
     <ChakraProvider theme={theme}>
-      <ColorModeScript initialColorMode={DarkMode} />
+      <ColorModeScript initialColorMode="dark" />
       {children}
     </ChakraProvider>
   );
