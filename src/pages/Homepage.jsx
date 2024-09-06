@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Container } from '@chakra-ui/react';
+import { Box, Heading, Container,Flex } from '@chakra-ui/react';
 import { Canvas } from '@react-three/fiber';
 import Typewriter from 'typewriter-effect';
 import Navbar from '../components/Navbar';
@@ -53,13 +53,22 @@ function Homepage() {
           </Canvas>
         </Container>
 
-        <Box mt={{ base: 4, md: 6 }}>
+        <Flex
+        direction="column" // Stack items vertically
+        align="center" // Center items horizontally
+        maxW={{ base: '100%', md: 'container.lg' }} // Set max width for larger screens
+        mx="auto" // Center the container
+        gap={6} // Add space between the components
+      >
+        <Box>
           <Profile />
         </Box>
 
-        <Box mt={{ base: 4, md: 6 }}>
+        <Box>
           <SkillSection />
         </Box>
+      </Flex>
+
       </Box>
     </>
   );

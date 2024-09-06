@@ -1,10 +1,11 @@
 import React from 'react';
-import { Box, Flex, Grid, GridItem, Text, useColorModeValue, Button, useColorMode } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
-import { FiExternalLink } from 'react-icons/fi';
+import { Box, Text, useColorModeValue } from '@chakra-ui/react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function WorkExperience() {
-  const { colorMode } = useColorMode();
+  const containerColor = useColorModeValue('orange.400', 'gray.700');
+  const textColor = useColorModeValue('gray.700', 'gray.700');
+
   const experience = [
     {
       title: 'Freelance Developer/Consultant',
@@ -14,7 +15,7 @@ function WorkExperience() {
     {
       title: 'Software Developer Trainee, HumanAI Singapore',
       date: 'Dec 2023 – Jun 2024, Singapore',
-      description: 'Developed a remote water monitoring dashboard application using React.js and Material UI connecting IOT data with the dashboard.I also helped setup the infrastructure for Hyperledger Private Blockchain and backend web3 services and a React Web3 Based Frontend to interact with the deployed smart contracts.I also assisted in integration of Open AI GPT-4 API for recipe comparision and analysis.',
+      description: 'Developed a remote water monitoring dashboard application using React.js and Material UI connecting IoT data with the dashboard. Also helped set up the infrastructure for Hyperledger Private Blockchain and backend web3 services, and a React Web3 Based Frontend to interact with the deployed smart contracts. Assisted in the integration of Open AI GPT-4 API for recipe comparison and analysis.',
     },
     {
       title: 'Software Developer Trainee, Kanoe Soft Solutions',
@@ -23,41 +24,34 @@ function WorkExperience() {
     },
   ];
 
-  const fadeInVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
-
-  const containerColor = useColorModeValue('orange.400', 'gray.700');
-  const headColor = useColorModeValue('black', 'white');
-  const textColor = useColorModeValue('gray.700', 'gray.700');
-
   return (
     <Box p={{ base: 4, md: 6 }} boxShadow="md" borderRadius="md" bg={containerColor}>
       <Text fontSize={{ base: 'lg', md: 'xl' }} fontWeight="bold" mb={5} color="white">
         Work Experience
       </Text>
-      <motion.div initial="hidden" animate="visible" variants={fadeInVariants}>
-        <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(1, 1fr)' }} gap={4}>
+      <Box p={4} boxShadow="sm" borderRadius="md" bg="gray.100">
+        <AnimatePresence>
           {experience.map((exp, index) => (
-            <GridItem key={index}>
-              <motion.div whileHover={{ scale: 1.05 }}>
-                <Box p={4} boxShadow="sm" borderRadius="md" bg="gray.100">
-                  <Text fontSize={{ base: 'md', md: 'lg' }} fontWeight="bold" mb={2} color="blue.700">
-                    {exp.title}
-                  </Text>
-                  <Text fontSize={{ base: 'sm', md: 'md' }} color={textColor} mb={2}>
-                    {exp.date}
-                  </Text>
-                  <Text fontSize={{ base: 'sm', md: 'md' }} color={textColor}>
-                    {exp.description}
-                  </Text>
-                </Box>
-              </motion.div>
-            </GridItem>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              <Text fontSize={{ base: 'md', md: 'lg' }} fontWeight="bold" mb={2} color="blue.700">
+                {exp.title}
+              </Text>
+              <Text fontSize={{ base: 'sm', md: 'md' }} color={textColor} mb={2}>
+                {exp.date}
+              </Text>
+              <Text fontSize={{ base: 'sm', md: 'md' }} color={textColor} mb={4}>
+                {exp.description}
+              </Text>
+            </motion.div>
           ))}
-        </Grid>
-      </motion.div>
+        </AnimatePresence>
+      </Box>
     </Box>
   );
 }

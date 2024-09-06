@@ -44,7 +44,7 @@ function App() {
             fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }} // Responsive font size
             mt={2}
           >
-            ☕ {/* Coffee emoji */}
+             {/* Coffee emoji */}
           </Box>
             
           </Box>

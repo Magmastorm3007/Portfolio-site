@@ -28,58 +28,26 @@ const Navbar = () => {
   };
 
   return (
-    <Flex as="nav" justifyContent="center" alignItems="center" py={4}>
-      <chakra.div
-        as={Link}
-        to="/"
-        p={2}
-        borderRadius="md"
-        className='nav-link'
-        _hover={{ bg: colorMode === 'light' ? 'yellow.200' : 'blue.800' }}
-        {...linkContainerStyles[colorMode]}
-        style={disableTextHighlight} // Disable blue text highlight on link click
-      >
-        Home
-      </chakra.div>
-
-      <chakra.div
-        as={Link}
-        to="/projects"
-        p={2}
-        borderRadius="md"
-        className='nav-link'
-        _hover={{ bg: colorMode === 'light' ? 'yellow.200' : 'blue.800' }}
-        {...linkContainerStyles[colorMode]}
-        style={disableTextHighlight} // Disable blue text highlight on link click
-      >
-        Projects
-      </chakra.div>
-      <chakra.div
-        as={Link}
-        to="/contact"
-        p={2}
-        borderRadius="md"
-        className='nav-link'
-        _hover={{ bg: colorMode === 'light' ? 'yellow.200' : 'blue.800' }}
-        {...linkContainerStyles[colorMode]}
-        style={disableTextHighlight} // Disable blue text highlight on link click
-      >
-        Contact
-      </chakra.div>
-      <chakra.div
-        as={Link}
-        to="/work"
-        p={2}
-        borderRadius="md"
-        className='nav-link'
-        _hover={{ bg: colorMode === 'light' ? 'yellow.200' : 'blue.800' }}
-        {...linkContainerStyles[colorMode]}
-        style={disableTextHighlight} // Disable blue text highlight on link click
-      >
-        Work Experience
-      </chakra.div>
-
-     
+    <Flex as="nav" justifyContent="center" alignItems="center" py={4} flexWrap="wrap">
+      {['/', '/projects', '/work','/contact'].map((path, index) => {
+        const labels = ['Home', 'Projects', 'Experience','Contact' ];
+        return (
+          <chakra.div
+            key={index}
+            as={Link}
+            to={path}
+            p={2}
+            borderRadius="md"
+            className='nav-link'
+            _hover={{ bg: colorMode === 'light' ? 'yellow.200' : 'blue.800' }}
+            {...linkContainerStyles[colorMode]}
+            style={disableTextHighlight} // Disable blue text highlight on link click
+            mx={2} // Add horizontal margin for spacing
+          >
+            {labels[index]}
+          </chakra.div>
+        );
+      })}
     </Flex>
   );
 };

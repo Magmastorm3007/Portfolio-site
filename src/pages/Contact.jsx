@@ -31,10 +31,38 @@ const Contact = () => {
     setMessage('');
   };
 
+  // Email validation regex
+  const isValidEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
   // Handle form submission
   const mail = (e) => {
     e.preventDefault();
-    e.target.reset();
+
+    if (!name || !email || !message) {
+      toast({
+        title: 'Validation Error',
+        description: 'All fields are required.',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      toast({
+        title: 'Invalid Email',
+        description: 'Please enter a valid email address.',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
+
     emailjs
       .sendForm('service_dmimtja', 'template_jve3fog', e.target, 'QRmgbLck8DSx7As5o')
       .then((result) => {
@@ -81,7 +109,7 @@ const Contact = () => {
         boxShadow="md"
         borderRadius="md"
         bg={containerColor}
-        maxW={{ base: '100%', md: 'container.md' }}
+        maxW={{ base: '100%', md: 'container.lg' }} // Keep it as 'container.lg'
         mx="auto"
         my={{ base: 4, md: 8 }}
         display="flex"
@@ -107,7 +135,7 @@ const Contact = () => {
           </motion.div>
         </Flex>
         <form onSubmit={mail} style={{ width: '100%' }}>
-          <FormControl mt={4}>
+          <FormControl mt={4} isRequired>
             <FormLabel color="white" fontWeight="bold">
               Full Name
             </FormLabel>
@@ -124,7 +152,7 @@ const Contact = () => {
               width="100%"
             />
           </FormControl>
-          <FormControl mt={6}>
+          <FormControl mt={6} isRequired>
             <FormLabel color="white" fontWeight="bold">
               Email
             </FormLabel>
@@ -141,7 +169,7 @@ const Contact = () => {
               width="100%"
             />
           </FormControl>
-          <FormControl mt={6}>
+          <FormControl mt={6} isRequired>
             <FormLabel color="white" fontWeight="bold">
               Message
             </FormLabel>
@@ -166,7 +194,6 @@ const Contact = () => {
             py={3}
             size="lg"
             fontWeight="bold"
-            
             bg={colorMode === 'light' ? 'orange.300' : 'red.300'}
             color="white"
             rounded="md"
