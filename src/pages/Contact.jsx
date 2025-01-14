@@ -14,6 +14,8 @@ import {
   useColorMode,
   Flex,
   useColorModeValue,
+  Grid,
+  GridItem,
 } from '@chakra-ui/react';
 
 const Contact = () => {
@@ -109,12 +111,13 @@ const Contact = () => {
         boxShadow="md"
         borderRadius="md"
         bg={containerColor}
-        maxW={{ base: '100%', md: 'container.lg' }} // Keep it as 'container.lg'
+        maxW="container.lg" // Set max width to 'container.lg' for responsiveness
         mx="auto"
         my={{ base: 4, md: 8 }}
         display="flex"
-        flexDirection="column"
+        flexDirection={{ base: 'column', md: 'grid' }} // Change to grid for desktop layout
         alignItems="center"
+        gridTemplateColumns={{ base: '1fr', md: '1fr 2fr' }} // Define grid columns for desktop
         overflow="hidden" // Prevent horizontal scrolling
       >
         <Box pb={2} textAlign="center" width="100%">
@@ -122,7 +125,7 @@ const Contact = () => {
             Contact Me
           </Heading>
         </Box>
-        <Flex justifyContent="center" alignItems="center" py={2}>
+        <Flex justifyContent="center" alignItems="center" py={2} gridColumn="1 / span 1"> 
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <a href="https://github.com/Magmastorm3007" target="_blank" rel="noopener noreferrer">
               <FaGithub size={30} color={colorMode === 'light' ? 'white' : 'black'} />
@@ -134,74 +137,79 @@ const Contact = () => {
             </a>
           </motion.div>
         </Flex>
-        <form onSubmit={mail} style={{ width: '100%' }}>
-          <FormControl mt={4} isRequired>
-            <FormLabel color="white" fontWeight="bold">
-              Full Name
-            </FormLabel>
-            <Input
-              name="from_name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              bg="gray.300"
-              color="black"
-              focusBorderColor="indigo.500"
+        <GridItem gridColumn="2 / span 1"> {/* Assign grid column for the form */}
+          <form onSubmit={mail} style={{ width: '100%' }}>
+            <FormControl mt={4} isRequired>
+              <FormLabel color="white" fontWeight="bold">
+                Full Name
+              </FormLabel>
+              <Input
+                name="from_name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                bg="gray.300"
+                color="black"
+                focusBorderColor="indigo.500"
+                size="lg"
+                rounded="md"
+                _hover={{ bg: 'gray.200' }}
+                width="100%"
+              />
+            </FormControl>
+            <FormControl mt={6} isRequired>
+              <FormLabel color="white" fontWeight="bold">
+                Email
+              </FormLabel>
+              <Input
+                name="from_email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                bg="gray.300"
+                color="black"
+                focusBorderColor="indigo.500"
+                size="lg"
+                rounded="md"
+                _hover={{ bg: 'gray.200' }}
+                width="100%"
+              />
+            </FormControl>
+            <FormControl mt={6} isRequired>
+              <FormLabel color="white" fontWeight="bold">
+                Message
+              </FormLabel>
+              <Textarea
+                name="message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                bg="gray.300"
+                color="black"
+                focusBorderColor="indigo.500"
+                size="lg"
+                rounded="md"
+                rows={4}
+                _hover={{ bg: 'gray.200' }}
+                width="100%"
+              />
+            </FormControl>
+            <Button
+              type="submit"
+              mt={8}
+              w="full"
+              py={3}
               size="lg"
+              fontWeight="bold"
+              bg={colorMode === 'light' ? 'blue.300' : 'red.300'}
+              color={colorMode==='light'?'white':'white'}
+              
               rounded="md"
-              _hover={{ bg: 'gray.200' }}
-              width="100%"
-            />
-          </FormControl>
-          <FormControl mt={6} isRequired>
-            <FormLabel color="white" fontWeight="bold">
-              Email
-            </FormLabel>
-            <Input
-              name="from_email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              bg="gray.300"
-              color="black"
-              focusBorderColor="indigo.500"
-              size="lg"
-              rounded="md"
-              _hover={{ bg: 'gray.200' }}
-              width="100%"
-            />
-          </FormControl>
-          <FormControl mt={6} isRequired>
-            <FormLabel color="white" fontWeight="bold">
-              Message
-            </FormLabel>
-            <Textarea
-              name="message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              bg="gray.300"
-              color="black"
-              focusBorderColor="indigo.500"
-              size="lg"
-              rounded="md"
-              rows={4}
-              _hover={{ bg: 'gray.200' }}
-              width="100%"
-            />
-          </FormControl>
-          <Button
-            type="submit"
-            mt={8}
-            w="full"
-            py={3}
-            size="lg"
-            fontWeight="bold"
-            bg={colorMode === 'light' ? 'orange.300' : 'red.300'}
-            color="white"
-            rounded="md"
-            _hover={{ bg: colorMode === 'light' ? 'orange.500' : 'red.500' }}
-          >
-            Send Message
-          </Button>
-        </form>
+              _hover={{ bg: colorMode === 'light' ? 'blue.500' : 'red.500' ,
+                color:colorMode==='light'?'white':'white'
+              }}
+            >
+              Send Message
+            </Button>
+          </form>
+        </GridItem>
       </Box>
     </motion.div>
   );

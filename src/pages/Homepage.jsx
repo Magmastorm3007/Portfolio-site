@@ -32,8 +32,8 @@ function Homepage() {
             options={{ cursor: '' }}
             onInit={(typewriter) => {
               typewriter
-                .pauseFor(1500)
-                .typeString('Web Developer | Game Developer')
+                .pauseFor(3000)
+                .typeString('Engineering Software Solutions')
                 .start();
             }}
           />

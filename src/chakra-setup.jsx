@@ -12,7 +12,7 @@ const theme = extendTheme({
   styles: {
     global: (props) => ({
       body: {
-        bg: mode("yellow.100", "#222625")(props), // Use light bg for light mode and dark bg for dark mode
+        bg: mode("blue.100", "gray.900")(props), // Use light bg for light mode and dark bg for dark mode
         margin: 0,
         color: mode("black", "white")(props), // Use black text for light mode and white text for dark mode
       },

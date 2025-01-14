@@ -48,7 +48,7 @@ const Profile = () => {
           About Me!
         </Heading>
         <Text fontSize={{ base: 'sm', md: 'md' }} mb={2}>
-          I am an experienced full stack web developer proficient in the MERN stack, adept at developing robust and scalable web applications. Additionally, I possess expertise in game development using Unity, allowing me to create immersive and interactive experiences across various platforms. With a strong background in both web and game development, I offer a versatile skill set to tackle diverse software development challenges.
+        I am a passionate Software Engineer with a strong foundation in web development,data engineering and game development. I enjoy building creative and user-friendly software solutions that solve real-world problems. I am eager to learn and grow within a dynamic environment and contribute to innovative projects.
         </Text>
       </Box>
     </MotionBox>
