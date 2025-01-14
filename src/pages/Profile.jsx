@@ -12,7 +12,7 @@ const Profile = () => {
   };
 
   const bgColor = {
-    light: 'orange.500',
+    light: 'orange.400',
     dark: 'gray.700',
   };
 

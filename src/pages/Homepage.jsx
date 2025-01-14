@@ -33,7 +33,7 @@ function Homepage() {
             onInit={(typewriter) => {
               typewriter
                 .pauseFor(3000)
-                .typeString('Engineering Software Solutions')
+                .typeString('Software Engineer | Developer ')
                 .start();
             }}
           />
