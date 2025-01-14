@@ -28,9 +28,16 @@ const Navbar = () => {
   };
 
   return (
-    <Flex as="nav" justifyContent="center" alignItems="center" py={4} flexWrap="wrap">
-      {['/', '/projects', '/work','/contact'].map((path, index) => {
-        const labels = ['Home', 'Projects', 'Experience','Contact' ];
+    <Flex
+      as="nav"
+      justifyContent="center"
+      alignItems="center"
+      py={4}
+      flexWrap={{ base: 'wrap', md: 'nowrap' }} // Wrap on smaller screens, nowrap on larger screens
+      overflowX={{ base: 'scroll', md: 'hidden' }} // Enable horizontal scrolling on smaller screens
+    >
+      {['/', '/projects', '/work', '/contact'].map((path, index) => {
+        const labels = ['Home', 'Projects', 'Experience', 'Contact'];
         return (
           <chakra.div
             key={index}
@@ -41,8 +48,8 @@ const Navbar = () => {
             className='nav-link'
             _hover={{ bg: colorMode === 'light' ? 'yellow.200' : 'blue.800' }}
             {...linkContainerStyles[colorMode]}
-            style={disableTextHighlight} // Disable blue text highlight on link click
-            mx={2} // Add horizontal margin for spacing
+            style={disableTextHighlight}
+            mx={2}
           >
             {labels[index]}
           </chakra.div>
